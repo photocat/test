@@ -1,0 +1,566 @@
+@import 'fonts';
+
+$small: 320px;
+$large: 1024px;
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $small) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $small + 1) and (max-width: $large - 1) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $large) { @content; }
+  }
+}
+
+
+body {
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.content {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.section {
+  background-color: #000000;
+  width: 100%;
+  color: #ffffff;
+}
+
+.section_light {
+  border-color: #ffffff;
+  width: 100%;
+}
+
+.headline {
+  width: 100%;
+  p {
+    font-family: 'Open Sans';
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 100px 0 30px 0;
+    span {
+      font-weight: 100;
+    }
+  }
+  .line_1 {
+    margin: 0 auto;
+    height: 5px;
+    width: 100px;
+    background-color: #e8aa4e;
+    border-radius: 2px;
+  }
+  .line_2 {
+    margin: 15px auto;
+    height: 5px;
+    width: 67px;
+    background-color: #a67a39;
+    border-radius: 2px;
+  }
+  @include respond-to(handhelds) { font-size: 20px; margin-bottom: 10px;}
+  @include respond-to(medium-screens) { font-size: 36px; margin-bottom: 40px;}
+  @include respond-to(wide-screens) { font-size: 44px; margin-bottom: 90px; }
+}
+
+.header {
+  background-color: #111111;
+  font-family: "Lato-Bold";
+  align-items: center;
+}
+
+.header__logo {
+  text-transform: uppercase;
+  font-size: 24px;
+  color: #ffffff;
+  margin: 0;
+  align-self: center;
+  padding-left: 15px;
+  @include respond-to(handhelds) { flex-grow: 0;}
+  @include respond-to(medium-screens) { flex-grow: 0; }
+  @include respond-to(wide-screens) { flex-grow: 1; }
+
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  @include respond-to(handhelds) {justify-content: space-around; padding-left: 0;}
+  @include respond-to(medium-screens) {justify-content: space-around; padding-left: 0}
+  @include respond-to(wide-screens) {justify-content: flex-end}
+}
+
+.menu__item {
+  color: #ffffff;
+  text-transform: uppercase;
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  @include respond-to(handhelds) {font-size: 10px; margin-bottom: 5px;   padding: 0 6px 0 6px;}
+  @include respond-to(medium-screens) {font-size: 10px; margin-bottom: 5px;   padding: 0 6px 0 6px;}
+  @include respond-to(wide-screens) {font-size: 14px;   padding: 0 12px 0 12px;}
+}
+
+.slick-prev, .slick-next {
+  height: 50px;
+  width: 50px;
+  margin-left: 50px;
+  background-image: url(../img/back.png);
+  background-position: 50% 50%;
+  background-size: contain;
+  z-index: 1;
+  &:hover {
+    background-image: url(../img/back.png);
+    background-position: 50% 50%;
+    background-size: contain;
+  }
+  &:before {
+    content: '';
+  }
+  @include respond-to(handhelds) {display: none !important}
+  @include respond-to(medium-screens) {display: none !important}
+  @include respond-to(wide-screens) {display: block;}
+}
+
+.slick-next-rev {
+  margin-left: 0;
+  margin-right: 50px;
+  background-image: url(../img/next.png);
+  &:hover {
+    background-image: url(../img/next.png);
+  }
+}
+.carousel__textbox {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  @include respond-to(handhelds) {top: 35%}
+  @include respond-to(medium-screens) {top: 35%}
+  @include respond-to(wide-screens) {top: 41%;}
+}
+
+.textbox__primary {
+  font-family: 'Open Sans';
+  font-weight: 100;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 0.55;
+  span {
+    color: #e8ab4e;
+    font-weight: bold;
+  }
+  @include respond-to(handhelds) {font-size: 18px}
+  @include respond-to(medium-screens) {font-size: 30px}
+  @include respond-to(wide-screens) {font-size: 44px}
+}
+
+.textbox__secondary {
+  font-family: 'Open Sans';
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.2;
+  span {
+    font-weight: bold;
+  }
+  @include respond-to(handhelds) {font-size: 10px}
+  @include respond-to(medium-screens) {font-size: 14px}
+  @include respond-to(wide-screens) {font-size: 20px}
+}
+
+.carousel__button {
+  position: absolute;
+  width: 100%;
+  bottom: 10%;
+  a {
+    display: block;
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
+    &:hover {
+      background-color: #21170D;
+      border-radius: 50% 50%;
+    }
+  }
+  @include respond-to(handhelds) {display: none}
+  @include respond-to(medium-screens) {display: none}
+  @include respond-to(wide-screens) {display: block}
+}
+
+.about {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about__image {
+  width: 500px;
+  height: 450px;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+  @include respond-to(handhelds) {padding-top: 20px; width: 250px; height: 225px; margin-left: 50px;}
+  @include respond-to(medium-screens) {padding-top: 40px; width: 250px; height: 225px; margin-left: 60px;}
+  @include respond-to(wide-screens) {padding-top: 123px;}
+}
+
+.about__text {
+  width: 500px;
+  margin-bottom: 50px;
+  @include respond-to(handhelds) {margin-top: -50px; width: 90%}
+  @include respond-to(medium-screens) {margin-top: 0px; width: 90%}
+  @include respond-to(wide-screens) {margin-top: 48px;}
+  .primary {
+    font-family: 'Gotham-Book';
+    line-height: 1.42;
+    color: #515865;
+    @include respond-to(handhelds) {font-size: 16px;}
+    @include respond-to(medium-screens) {font-size: 18px;}
+    @include respond-to(wide-screens) {font-size: 25px;}
+  }
+  .secondary {
+    font-family: 'Open Sans';
+    line-height: 1.38;
+    color: #6c6c6c;
+    @include respond-to(handhelds) {font-size: 14px; padding-left: 0;}
+    @include respond-to(medium-screens) {font-size: 16px; padding-left: 0;}
+    @include respond-to(wide-screens) {font-size: 18px; padding-left: 20px;}
+  }
+  .list {
+    list-style: url('../img/list_ico.png');
+  }
+  .list__item {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.56;
+    color: #5a5a5a;
+    @include respond-to(handhelds) {font-size: 14px;}
+    @include respond-to(medium-screens) {font-size: 14px;}
+    @include respond-to(wide-screens) {font-size: 16px;}
+  }
+  .item__main {
+    font-family: 'Open Sans';
+    font-weight: 500;
+    line-height: 1.38;
+    color: #5a5a5a;
+    @include respond-to(handhelds) {font-size: 14px;}
+    @include respond-to(medium-screens) {font-size: 16px;}
+    @include respond-to(wide-screens) {font-size: 18px;}
+  }
+  .button {
+    height: 45px;
+    width: 190px;
+    display: block;
+    border: 1px solid #7f7f7f;
+    border-radius: 3px;
+    text-decoration: none;
+    p {
+      text-align: center;
+      font-family: 'Open Sans';
+      font-weight: 500;
+      font-size: 12px;
+      text-transform: uppercase;
+      line-height: 2.08;
+      color: #616161;
+      &:before {
+        content: url(../img/case_ico.png);
+        padding-right: 5px;
+      }
+    }
+    @include respond-to(handhelds) {margin: 0 auto;}
+    @include respond-to(medium-screens) {margin: 0 auto;}
+    @include respond-to(wide-screens) {margin: 30px 0 0 20px;}
+  }
+}
+
+.box {
+  font-family: 'Open Sans';
+  text-align: center;
+  width: 270px;
+}
+
+.box__avatar {
+  display: inline-block;
+  border-radius: 50%;
+  background-color: #d6d6d6;
+  width: 128px;
+  height: 128px;
+}
+
+.box__name {
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.box__position {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.box__about {
+  font-size: 14px;
+  line-height: 1.71;
+}
+
+.dot__box {
+  margin: 80px 0;
+}
+
+.dot {
+  display: inline-block;
+  height: 9px;
+  width: 9px;
+  margin: 0 7px;
+  background-color: #ffffff;
+}
+
+.dot_active {
+  background-color: #e8aa4e;
+}
+
+.preview {
+  margin-bottom: 70px;
+}
+
+.preview__text {
+  font-family: 'Open Sans';
+  font-size: 16px;
+  line-height: 1.5;
+  font-style: italic;
+  color: #6c6c6c;
+  text-align: center;
+  @include respond-to(handhelds) {width: 90%; font-size: 14px}
+  @include respond-to(medium-screens) {width: 90%; font-size: 14px}
+}
+
+.filter {
+  margin: 110px auto 44px auto;
+}
+
+.filter__headline {
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 500;
+  color: #272727;
+  margin: 0;
+  align-self: center;
+  padding-left: 15px;
+  flex-grow: 1;
+  @include respond-to(handhelds) {flex-grow: 0; padding-left: 0}
+  @include respond-to(medium-screens) {flex-grow: 0; padding-left: 0}
+  @include respond-to(wide-screens) {font-size: 18px;}
+}
+
+.filter__type {
+  font-family: 'Open Sans';
+  font-size: 18px;
+  padding-right: 15px;
+  color: #272727;
+  a {
+    text-decoration: none;
+    color: #272727;
+  }
+  li:not(:last-child){
+      &:after {
+        content: "|";
+        padding-left: 10px;
+        @include respond-to(handhelds) {content: ""; padding-left: 10px;}
+        @include respond-to(medium-screens) {content: ""; padding-left: 10px;}
+
+      }
+  }
+  @include respond-to(handhelds) {font-size: 14px; display: block; width: 100%; text-align: center;}
+  @include respond-to(medium-screens) {font-size: 16px; display: block; width: 100%; text-align: center;}
+  @include respond-to(wide-screens) {font-size: 18px;}
+}
+
+.type__name_active {
+  font-weight: 500;
+}
+
+.type__name {
+  padding: 0 7px;
+  @include respond-to(handhelds) {width: 100%;}
+  @include respond-to(medium-screens) {width: 100%;}
+}
+
+.preview__box {
+  width: 263px;
+  height: 238px;
+  background-color: #d6d6d6;
+  margin-bottom: 30px;
+}
+
+.preview__box_add {
+  background-color: #272727;
+  font-family: 'Open Sans';
+  text-align: center;
+}
+
+.preview__box__name {
+  font-size: 20px;
+  color: #ffffff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  margin-top: 64px;
+}
+
+.preview__box__type {
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 0;
+  margin-top: -5px;
+}
+
+.preview__box__button {
+  text-decoration: none;
+  margin-top: 20px;
+  display: inline-flex;
+  border-radius: 50%;
+  height: 38px;
+  width: 38px;
+  border: 2px solid #e4a74d;
+  color: #e4a74d;
+  font-size: 30px;
+  justify-content: space-around;
+  align-items: center;
+  line-height: 0;
+  &:hover {
+    border: 2px solid #a67a39;
+    color: #a67a39;
+  }
+}
+
+.footer__copyrights {
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #b0b0b0;
+  margin: 0;
+  align-self: center;
+  padding-left: 15px;
+  span {
+    font-weight: bold;
+  }
+  @include respond-to(handhelds) {flex-grow: 0; padding-top: 10px}
+  @include respond-to(medium-screens) {flex-grow: 0; padding-top: 10px}
+  @include respond-to(wide-screens) {flex-grow: 1;}
+}
+
+.footer__social {
+  display: inline-flex;
+}
+
+.footer__social__item {
+  padding: 0 7px;
+}
+
+/* The Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal__content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    @include respond-to(handhelds) {width: 85%;}
+    @include respond-to(medium-screens) {width: 85%;}
+    @include respond-to(wide-screens) {width: 35%;}
+}
+
+.modal__close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    &:hover,
+    &:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+.modal__form {
+  font-family: "Open Sans";
+  font-size: 20px;
+  input, textarea {
+    display: block;
+  	width:70%;
+  	height:27px;
+  	background:#efefef;
+    border-radius: 5px;
+  	border:1px solid #dedede;
+  	padding:10px;
+  	margin:3px auto 0 auto;
+  	font-size:16px;
+  	color:#3a3a3a;
+  }
+  textarea {
+  	height:200px;
+    resize: none;
+    font-family: "Open Sans";
+    font-size: 16px;
+    white-space: normal;
+  }
+  #submit {
+      width:127px;
+      height:38px;
+      border:none;
+      margin-top:20px;
+      cursor:pointer;
+      color: #000000;
+      border:1px solid #dedede;
+  }
+	#submit:hover {
+	    background-color: #333333;
+      color: #ffffff;
+	}
+}
+
+.form__label {
+  display:block;
+  text-align: center;
+  margin:20px;
+}
+
+.help-block,
+.form-error {
+  text-align: center;
+}
