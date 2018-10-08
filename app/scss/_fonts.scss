@@ -2,8 +2,8 @@
   font-family: 'Gotham-Book';
   src: url('../fonts/Gotham-Book/Gotham-Book.eot?#iefix') format('embedded-opentype'),
        url('../fonts/Gotham-Book/Gotham-Book.otf')  format('opentype'),
-	     url('../fonts/Gotham-Book/Gotham-Book.woff') format('woff'), 
-       url('../fonts/Gotham-Book/Gotham-Book.ttf')  format('truetype'), 
+	     url('../fonts/Gotham-Book/Gotham-Book.woff') format('woff'),
+       url('../fonts/Gotham-Book/Gotham-Book.ttf')  format('truetype'),
        url('../fonts/Gotham-Book/Gotham-Book.svg#Gotham-Book') format('svg');
   font-weight: normal;
   font-style: normal;
@@ -17,4 +17,37 @@
        url('../fonts/Lato-Bold/Lato-Bold.svg#Lato-Bold') format('svg');
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/Open-Sans/OpenSans-Regular.eot');
+    src: url('../fonts/Open-Sans/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Open-Sans/OpenSans-Regular.woff') format('woff'),
+        url('../fonts/Open-Sans/OpenSans-Regular.ttf') format('truetype'),
+        url('../fonts/Open-Sans/OpenSans-Regular.svg#OpenSans-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/Open-Sans/OpenSans-SemiBold.eot');
+    src: url('../fonts/Open-Sans/OpenSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Open-Sans/OpenSans-SemiBold.woff') format('woff'),
+        url('../fonts/Open-Sans/OpenSans-SemiBold.ttf') format('truetype'),
+        url('../fonts/Open-Sans/OpenSans-SemiBold.svg#OpenSans-SemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/Open-Sans/OpenSans-Light.eot');
+    src: url('../fonts/Open-Sans/OpenSans-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Open-Sans/OpenSans-Light.woff') format('woff'),
+        url('../fonts/Open-Sans/OpenSans-Light.ttf') format('truetype'),
+        url('../fonts/Open-Sans/OpenSans-Light.svg#OpenSans-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
 }
